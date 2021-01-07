@@ -20,7 +20,7 @@ namespace FreakyFashionServices.Basket.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateBasketAsync(string id, [FromBody]ShoppingBasket basket)
         {
-            await _cache.SetRecordAsync<ShoppingBasket>(id, basket);
+            await _cache.SetRecordAsync(id, basket);
 
             return NoContent();
         }
