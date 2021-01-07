@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreakyFashionServices.Catal
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreakyFashionServices.Basket", "FreakyFashionServices.Basket\FreakyFashionServices.Basket.csproj", "{D70D72A8-2A71-42C2-9763-15AF22FAE807}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreakyFashionServices.ProductPrice", "FreakyFashionServices.ProductPrice\FreakyFashionServices.ProductPrice.csproj", "{B8446D70-585B-4D1E-922F-294F016C5340}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreakyFashionServices.ProductPrice", "FreakyFashionServices.ProductPrice\FreakyFashionServices.ProductPrice.csproj", "{B8446D70-585B-4D1E-922F-294F016C5340}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreakyFashionServices.API", "FreakyFashionServices.API\FreakyFashionServices.API.csproj", "{31D87492-DF14-4091-94A8-78173B168B26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreakyFashionServices.API", "FreakyFashionServices.API\FreakyFashionServices.API.csproj", "{31D87492-DF14-4091-94A8-78173B168B26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreakyFashionServices.Order", "FreakyFashionServices.Order\FreakyFashionServices.Order.csproj", "{9187A9D6-78FE-4F3B-A3AD-317255F154B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{31D87492-DF14-4091-94A8-78173B168B26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31D87492-DF14-4091-94A8-78173B168B26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31D87492-DF14-4091-94A8-78173B168B26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9187A9D6-78FE-4F3B-A3AD-317255F154B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9187A9D6-78FE-4F3B-A3AD-317255F154B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9187A9D6-78FE-4F3B-A3AD-317255F154B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9187A9D6-78FE-4F3B-A3AD-317255F154B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
