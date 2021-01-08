@@ -1,4 +1,5 @@
-﻿using FreakyFashionServices.OrderConsole.Data.Entities;
+﻿using FreakyFashionServices.OrderConsole.Data;
+using FreakyFashionServices.OrderConsole.Data.Entities;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
@@ -9,10 +10,15 @@ namespace FreakyFashionServices.OrderConsole
 {
     class Program
     {
+        private static readonly FreakyFashionOrderDbContext _dbContext = new FreakyFashionOrderDbContext();
+        private static bool hasIncomingOrders = false;
+
         static void Main(string[] args)
         {
-            //var isRunning = true;
-            Console.WriteLine("Waiting for orders...");
+            var isRunning = true;
+            Console.CursorVisible = false;
+
+            if (!hasIncomingOrders) Console.WriteLine("Waiting for incoming orders...");
 
             using var connection = CreateRabbitMqConnection();
             using var channel = connection.CreateModel();
@@ -23,7 +29,20 @@ namespace FreakyFashionServices.OrderConsole
             var consumer = InitializeRabbitMqConsumer(channel, queueName);
             consumer.Received += OnRecieved;
 
-            Console.ReadKey(false);
+            while (isRunning)
+            {
+                var keyPressed = Console.ReadKey(false).Key;
+
+                switch (keyPressed)
+                {
+                    case ConsoleKey.Escape:
+                        isRunning = false;
+                        break;
+                    default:
+                        isRunning = true;
+                        break;
+                }
+            }            
         }
 
         private static IConnection CreateRabbitMqConnection()
@@ -64,9 +83,28 @@ namespace FreakyFashionServices.OrderConsole
 
             var order = JsonConvert.DeserializeObject<Order>(serializedOrder);
 
-            Console.WriteLine($"{order.CustomerIdentifier}");
+            _dbContext.Orders.Add(order);
+            _dbContext.SaveChanges();
 
-            //Save incoming order in database.
+            if (!hasIncomingOrders)
+            {
+                Console.Clear();
+                hasIncomingOrders = true;
+
+                Console.WriteLine("Orders recieved this session:\n\n");
+
+                Console.WriteLine("Order Id\tCustomer Id");
+                Console.WriteLine(new string('-', Console.WindowWidth));
+            }
+
+            Console.WriteLine($" {order.OrderId}\t\t{order.CustomerIdentifier}\n");            
+
+            foreach (var orderItem in order.Items)
+            {
+                Console.WriteLine($"\t{orderItem.Id}\t{orderItem.ProductName}\tQty: {orderItem.Quantity}");
+            }
+
+            Console.WriteLine(new string('-', Console.WindowWidth));
         }
     }
 }
