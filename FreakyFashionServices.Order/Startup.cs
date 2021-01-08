@@ -1,3 +1,4 @@
+using FreakyFashionServices.Order.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -19,6 +20,8 @@ namespace FreakyFashionServices.Order
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.Configure<RabbitMqSettings>(Configuration.GetSection("RabbitMqSettings"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
