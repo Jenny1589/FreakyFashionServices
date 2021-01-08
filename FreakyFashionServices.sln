@@ -11,7 +11,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreakyFashionServices.Produ
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreakyFashionServices.API", "FreakyFashionServices.API\FreakyFashionServices.API.csproj", "{31D87492-DF14-4091-94A8-78173B168B26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreakyFashionServices.Order", "FreakyFashionServices.Order\FreakyFashionServices.Order.csproj", "{9187A9D6-78FE-4F3B-A3AD-317255F154B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreakyFashionServices.Order", "FreakyFashionServices.Order\FreakyFashionServices.Order.csproj", "{9187A9D6-78FE-4F3B-A3AD-317255F154B4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreakyFashionServices.OrderConsole", "FreakyFashionServices.OrderConsole\FreakyFashionServices.OrderConsole.csproj", "{ADD254D2-6FF7-4327-ABBF-9E4174D21C79}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1FA97032-3BC4-4A9B-99BE-05B0B5A30357}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +46,10 @@ Global
 		{9187A9D6-78FE-4F3B-A3AD-317255F154B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9187A9D6-78FE-4F3B-A3AD-317255F154B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9187A9D6-78FE-4F3B-A3AD-317255F154B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADD254D2-6FF7-4327-ABBF-9E4174D21C79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADD254D2-6FF7-4327-ABBF-9E4174D21C79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADD254D2-6FF7-4327-ABBF-9E4174D21C79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADD254D2-6FF7-4327-ABBF-9E4174D21C79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
