@@ -25,6 +25,9 @@ namespace FreakyFashionServices.OrderConsole.Data
                 .Property(oi => oi.Id)
                 .ValueGeneratedNever();
 
+            modelBuilder.Entity<Order.OrderItem>()
+                .HasKey(oi => new { oi.Id, oi.OrderId });
+
             modelBuilder.Entity<Order>()
                 .ToTable("Order")
                 .HasMany(o => o.Items)
