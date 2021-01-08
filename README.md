@@ -12,8 +12,9 @@ starting order - or IP adresses must be configured and updated in appsettings.js
 5. ProductPrice: 172.17.0.6
 6. RabbitMQ: 172.17.0.7
 7. Order: 172.17.0.8
-8. OrderConsole: 172.17.0.9
-9. API Gateway: 172.17.0.10?
+9. API Gateway: 172.17.0.9
+
+Console app is run through Visual studio.
 
 ## API Gateway
 A gateway to reach all functionality provided by the microservices in this solution.
