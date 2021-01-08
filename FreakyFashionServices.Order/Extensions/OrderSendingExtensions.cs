@@ -7,12 +7,11 @@ namespace FreakyFashionServices.Order.Extensions
 {
     public static class OrderSendingExtensions
     {
-        public static void Send(this CustomerOrder order, RabbitMqSettings settings)
+        public static void Send(this CustomerOrder order, string messageHost)
         {
             var factory = new ConnectionFactory
             {
-                HostName = settings.HostName,
-                Port = settings.Port
+                HostName = messageHost
             };
 
             using var connection = factory.CreateConnection();

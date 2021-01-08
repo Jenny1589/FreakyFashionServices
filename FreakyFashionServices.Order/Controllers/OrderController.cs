@@ -15,12 +15,12 @@ namespace FreakyFashionServices.Order.Controllers
     public class OrderController : ControllerBase
     {
         private string _basketServiceAddress;
-        private RabbitMqSettings _rabbitMqSettings;
+        private string _rabbitMqHost;
 
-        public OrderController(IOptions<RabbitMqSettings> rabbitMqSettings, IConfiguration configuration)
+        public OrderController(IConfiguration configuration)
         {
             _basketServiceAddress = configuration.GetConnectionString("BasketService");
-            _rabbitMqSettings = rabbitMqSettings.Value;
+            _rabbitMqHost = configuration.GetConnectionString("RabbitMqHost");
         }
 
         [HttpPost]
@@ -31,7 +31,7 @@ namespace FreakyFashionServices.Order.Controllers
             if (basket is null) return NotFound();
 
             var order = CreateOrder(customer.CustomerIdentifier, basket);
-            order.Send(_rabbitMqSettings);
+            order.Send(_rabbitMqHost);
 
             return Accepted();
         }
